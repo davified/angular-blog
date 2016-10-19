@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-post',
@@ -8,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class PostComponent {
 
   constructor() { }
-  title: string = 'first post'
-  body: string = 'hello world'
 
+  posts = [{
+    title: 'first post',
+    body: 'hello world'
+  }, {
+      title: 'second post',
+      body: 'hello again'
+    }, {
+      title: 'third post',
+      body: 'it\'s me again'
+    }]
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+
   }
 
 }
