@@ -6,18 +6,16 @@ import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-new-post',
-  templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.css']
+  templateUrl: './new-post.component.html'
 })
 
 export class NewPostComponent {
 
   constructor(private ps: PostsService) { }
-  post: Post
+  // post: Post
 
-  onSubmit(post: Post) {
-    this.post = new Post(post.title, post.body)
-    this.ps.addPost(this.post)
-    console.log(this.ps)
+  onSubmit(chicken: Post) {
+    // this.post = new Post(chicken.title, chicken.body)
+    this.ps.addPost(chicken)
   }
 }

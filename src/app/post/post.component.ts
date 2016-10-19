@@ -4,14 +4,16 @@ import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  templateUrl: './post.component.html'
 })
 export class PostComponent {
 
-  constructor(private ps: PostsService) { }
+  constructor(private chicken: PostsService) { }
 
-  posts = this.ps.posts
+  posts = this.chicken.posts
   ngOnInit() {
+    console.log(this.chicken)
+    console.log(this.chicken.posts)
+    console.log(this.chicken.zebra)
   }
 }

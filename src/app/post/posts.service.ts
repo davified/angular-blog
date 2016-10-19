@@ -12,7 +12,7 @@ export class PostsService {
       body: 'it\'s me again'
     }];
 
-  constructor() { }
+  public zebra: string = "i am zebra!"
 
   getPosts() {
     return this.posts
