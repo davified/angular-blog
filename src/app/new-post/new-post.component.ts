@@ -1,25 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostComponent } from '../post/post.component'
+import {Post} from '../shared/post'
+import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css']
 })
+
 export class NewPostComponent {
-  // @Input() title: string = '';
 
-  postComponent = new PostComponent()
+  constructor(private ps: PostsService) { }
+  post: Post
 
-  posts = this.postComponent.posts
-
-  post = {
-    title: '',
-    body: ''
-  }
-
-  onSubmit(form: NgForm) {
-    this.posts.push(this.post)
+  onSubmit(post: Post) {
+    this.post = new Post(post.title, post.body)
+    this.ps.addPost(this.post)
+    console.log(this.ps)
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import {Post} from '../shared/post'
+import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-post',
@@ -7,23 +9,9 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 })
 export class PostComponent {
 
-  constructor() { }
+  constructor(private ps: PostsService) { }
 
-  posts = [{
-    title: 'first post',
-    body: 'hello world'
-  }, {
-      title: 'second post',
-      body: 'hello again'
-    }, {
-      title: 'third post',
-      body: 'it\'s me again'
-    }]
+  posts = this.ps.posts
   ngOnInit() {
   }
-
-  ngOnChanges() {
-
-  }
-
 }

@@ -1,9 +1,9 @@
 <h2>Create a new post</h2>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+<form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
   <label for="title">Title</label>
-  <input type="text" [(ngModel)]="post.title" class="form-control" name="title">
+  <input type="text" [(ngModel)]="title" class="form-control" name="title">
   <label for="body">Body</label>
-  <input type="text" [(ngModel)]="post.body" class="form-control" name="body" #body="ngModel">
+  <input type="text" [(ngModel)]="body" class="form-control" name="body">
   <br>
   <button>Submit post</button>
 </form>
