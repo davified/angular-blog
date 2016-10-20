@@ -8,7 +8,7 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class PostsService {
-  private PostsUrl = 'http://express-blog-wdi5.herokuapp.com/blogposts'
+  private PostsUrl = 'https://express-blog-wdi5.herokuapp.com/blogposts'
   public anyChange: boolean
   constructor(private http: Http) { }
 
