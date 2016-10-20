@@ -22,9 +22,7 @@ export class PostComponent implements OnInit {
   getPosts() {
     this.ps.getPosts()
       .subscribe(
-      posts => { this.posts = posts; console.log(this.posts) },
+      posts => { this.posts = posts },
       error => this.errorMessage = <any>error);
-
-
   }
 }

@@ -8,8 +8,8 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class PostsService {
-  private getPostsUrl = 'http://express-blog-wdi5.herokuapp.com/blogposts'
-
+  private PostsUrl = 'http://express-blog-wdi5.herokuapp.com/blogposts'
+  public anyChange: boolean
   constructor(private http: Http) { }
 
   // public posts: Post[] = [{
@@ -22,8 +22,6 @@ export class PostsService {
   //     title: 'third post',
   //     body: 'it\'s me again'
   //   }];
-  //
-  // public zebra: string = "i am zebra!"
 
   // old method. no http request. hard coded array
   // getPosts() {
@@ -31,24 +29,28 @@ export class PostsService {
   // }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get(this.getPostsUrl)
+    return this.http.get(this.PostsUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
-  // addPosts(posts: Post[]) {
-  //   Array.prototype.push.apply(this.posts, posts)
-  // }
+  addPost(post: Post) {
+    // necessary for APIs that require headers/options configured
+    // let body = JSON.stringify({ post });
+    // let headers = new Headers({ 'Content-Type': 'application/json' });
+    // let options = new RequestOptions({ headers: headers });
+    // to include options in your http request, add it as the third argument, after your {post} object, like so:
+    // return this.http.post(this.PostsUrl, post, options)
 
-  // addPost(post: Post) {
-  //   this.posts.push(post)
-  // }
+    return this.http.post(this.PostsUrl, post)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
   private extractData(res: Response) {
     // NOTE: be careful to always inspect body first to see the content of the response.
     let body = res.json();
     return body || {};
-
   }
 
   private handleError(error: any) {
