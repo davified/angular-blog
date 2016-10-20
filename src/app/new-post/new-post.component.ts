@@ -17,6 +17,8 @@ export class NewPostComponent {
   errorMessage: string;
   posts: Post[];
   mode = 'Observable';
+  title: string;
+  body: string;
 
   getPosts() {
     this.ps.getPosts()
