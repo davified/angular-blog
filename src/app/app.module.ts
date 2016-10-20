@@ -10,6 +10,7 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { DataDrivenNewPostComponent } from './data-driven-new-post/data-driven-new-post.component';
 import { PostsService } from "./post/posts.service";
 
+// import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PostsService } from "./post/posts.service";
     BrowserModule,
     FormsModule,
     HttpModule,
+    // JsonpModule,
     ReactiveFormsModule
   ],
   providers: [PostsService],

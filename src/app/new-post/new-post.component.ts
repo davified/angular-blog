@@ -14,8 +14,8 @@ export class NewPostComponent {
   constructor(private ps: PostsService) { }
   // post: Post
 
-  onSubmit(chicken: Post) {
-    // this.post = new Post(chicken.title, chicken.body)
-    this.ps.addPost(chicken)
+  onSubmit(post: Post) {
+    // this.post = new Post(post.title, post.body)
+    this.ps.addPost(post)
   }
 }

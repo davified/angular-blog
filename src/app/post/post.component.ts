@@ -4,16 +4,27 @@ import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html'
+  templateUrl: './post.component.html',
+  providers: [PostsService]
 })
-export class PostComponent {
+export class PostComponent implements OnInit {
+  errorMessage: string;
+  posts: Post[];
+  mode = 'Observable';
 
-  constructor(private chicken: PostsService) { }
+  constructor(private ps: PostsService) { }
 
-  posts = this.chicken.posts
+  // posts = this.ps.posts
   ngOnInit() {
-    console.log(this.chicken)
-    console.log(this.chicken.posts)
-    console.log(this.chicken.zebra)
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.ps.getPosts()
+      .subscribe(
+      posts => { this.posts = posts; console.log(this.posts) },
+      error => this.errorMessage = <any>error);
+
+
   }
 }
