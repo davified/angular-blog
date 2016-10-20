@@ -1,3 +1,4 @@
+// This component is responsible for getting blogposts and posting a blogpost
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostComponent } from '../post/post.component'
