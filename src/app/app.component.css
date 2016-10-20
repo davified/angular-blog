@@ -1,0 +1,14 @@
+#backgroundHeader {
+  background-image: url('https://static.pexels.com/photos/27847/pexels-photo-27847.jpg');
+  height: 300px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  color: white;
+  font-size: 18em;
+  text-align: right;
+  position: relative;
+  bottom: 0px
+}
