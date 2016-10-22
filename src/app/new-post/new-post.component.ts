@@ -7,7 +7,8 @@ import { PostsService} from '../post/posts.service'
 
 @Component({
   selector: 'app-new-post',
-  templateUrl: './new-post.component.html'
+  templateUrl: './new-post.component.html',
+  styleUrls: ['./new-post.component.css']
 })
 
 export class NewPostComponent {
@@ -23,7 +24,7 @@ export class NewPostComponent {
   getPosts() {
     this.ps.getPosts()
       .subscribe(
-      posts => { this.posts = posts },
+      posts => { this.posts = posts; console.log(posts) },
       error => this.errorMessage = <any>error);
   }
 
@@ -33,6 +34,9 @@ export class NewPostComponent {
 
   addPost(post: Post) {
     if (!post) { return; }
+    post['image_url'] = 'https://source.unsplash.com/random'
+    post['likes'] = '0'
+    post['author'] = 'david'
     this.ps.addPost(post)
       .subscribe(
       post => { this.posts.push(post); this.getPosts() },
