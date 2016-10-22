@@ -24,7 +24,7 @@ export class NewPostComponent {
   getPosts() {
     this.ps.getPosts()
       .subscribe(
-      posts => { this.posts = posts; console.log(posts) },
+      posts => { this.posts = posts },
       error => this.errorMessage = <any>error);
   }
 

@@ -34,6 +34,13 @@ export class PostsService {
       .catch(this.handleError);
   }
 
+  getPost(id): Observable<Post[]> {
+    console.log(this.PostsUrl + '/' + id)
+    return this.http.get(this.PostsUrl + '/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   addPost(post: Post) {
     // necessary for APIs that require headers/options configured
     // let body = JSON.stringify({ post });

@@ -9,6 +9,8 @@ import { PostComponent } from './post/post.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { DataDrivenNewPostComponent } from './data-driven-new-post/data-driven-new-post.component';
 import { PostsService } from "./post/posts.service";
+import { routing } from './app.routing';
+import { DetailPostComponent } from './detail-post/detail-post.component'
 
 // import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
 
@@ -17,14 +19,16 @@ import { PostsService } from "./post/posts.service";
     AppComponent,
     PostComponent,
     NewPostComponent,
-    DataDrivenNewPostComponent
+    DataDrivenNewPostComponent,
+    DetailPostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     // JsonpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    routing
   ],
   providers: [PostsService],
   bootstrap: [AppComponent]
