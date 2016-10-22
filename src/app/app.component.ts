@@ -10,4 +10,10 @@ import './rxjs-operators';
 })
 export class AppComponent {
   title = 'angular';
+
+  randomNumber = this.generateRandomNumber()
+
+  generateRandomNumber() {
+    return Math.round(Math.random() * 5) + 1
+  }
 }

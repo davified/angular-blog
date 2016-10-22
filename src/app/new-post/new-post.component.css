@@ -10,7 +10,22 @@
   /*z-index: -1;*/
 }
 
-.routerLinks, .routerLinks:hover {
+.routerLinks {
   text-decoration: none;
   color: currentColor;
+}
+
+.routerLinks:hover {
+  text-decoration: none;
+  color: grey;
+  transition: 0.3s
+}
+
+#postBody {
+  height: 100px;
+  overflow: hidden;
+}
+
+#postBody::after {
+  content: '...'
 }
