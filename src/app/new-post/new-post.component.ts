@@ -35,11 +35,9 @@ export class NewPostComponent {
     if (!post) { return; }
     this.ps.addPost(post)
       .subscribe(
-      post => { this.posts.push(post) },
+      post => { this.posts.push(post); this.getPosts() },
       error => this.errorMessage = <any>error);
     this.title = ''
     this.body = ''
-    this.getPosts();
   }
-
 }
