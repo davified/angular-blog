@@ -1,5 +1,6 @@
 .article-container {
   width: 85%;
+  padding-bottom: 40px
 }
 
 .img-container {
@@ -19,10 +20,14 @@
   color: currentColor;
 }
 
-a {
+#backLink {
   text-decoration: underline;
+  color: rgb(28, 62, 138);
+  transition: 0.3s
 }
 
-a:hover {
-  cursor: pointer
+#backLink:hover {
+  cursor: pointer;
+  color: black;
+  transition: 0.3s
 }
