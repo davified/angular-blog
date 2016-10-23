@@ -13,6 +13,10 @@
   cursor: pointer;
 }
 
+.article-container {
+  width: 85%;
+}
+
 .routerLinks {
   text-decoration: none;
   color: currentColor;

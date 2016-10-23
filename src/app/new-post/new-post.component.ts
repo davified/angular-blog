@@ -1,5 +1,7 @@
 // This component is responsible for getting blogposts and posting a blogpost
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, HostBinding,
+  trigger, transition, animate,
+  style, state } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PostComponent } from '../post/post.component'
 import { Post } from '../shared/post'
@@ -11,10 +13,44 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.css']
+  styleUrls: ['./new-post.component.css'],
+  animations: [
+    trigger('routeAnimation', [
+      state('*',
+        style({
+          opacity: 1,
+          transform: 'translateX(0)'
+        })
+      ),
+      transition('void => *', [
+        style({
+          opacity: 0,
+        }),
+        animate('0.3s ease-in')
+      ]),
+      transition('* => void', [
+        animate('0.5s ease-out', style({
+          opacity: 0,
+        }))
+      ])
+    ])
+  ]
 })
 
 export class NewPostComponent {
+  // adding animations
+
+  @HostBinding('@routeAnimation') get routeAnimation() {
+    return true;
+  }
+
+  @HostBinding('style.display') get display() {
+    return 'block';
+  }
+
+  @HostBinding('style.position') get position() {
+    return 'absolute';
+  }
 
   private selectedId: number;
 
