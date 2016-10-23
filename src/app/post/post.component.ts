@@ -11,6 +11,7 @@ import { PostsService} from '../post/posts.service'
 export class PostComponent implements OnInit {
   errorMessage: string;
   posts: Post[];
+  id: number;
   mode = 'Observable';
 
   constructor(private ps: PostsService) { }

@@ -6,7 +6,8 @@ import { DetailPostComponent } from './detail-post/detail-post.component'
 const APP_ROUTES: Routes = [
   { path: '', component: NewPostComponent },
   { path: 'posts', component: NewPostComponent },
-  { path: 'posts/:id', component: DetailPostComponent }
+  { path: 'posts/:id', component: DetailPostComponent },
+  { path: 'wrong', redirectTo: '/' }
 
 ]
 

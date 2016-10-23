@@ -5,6 +5,9 @@ import { PostComponent } from '../post/post.component'
 import { Post } from '../shared/post'
 import { PostsService} from '../post/posts.service'
 
+// loading components for animated routing
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
@@ -13,11 +16,19 @@ import { PostsService} from '../post/posts.service'
 
 export class NewPostComponent {
 
-  constructor(private ps: PostsService) { }
+  private selectedId: number;
+
+  constructor(
+    private ps: PostsService,
+    private service: PostsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
   // typing/creating our variables.
   errorMessage: string;
   posts: Post[];
   mode = 'Observable';
+  id: number;
   title: string;
   body: string;
 
@@ -30,6 +41,10 @@ export class NewPostComponent {
 
   ngOnInit() {
     this.getPosts()
+  }
+
+  onSelect(post: Post) {
+    this.router.navigate(['/posts', post.id]);
   }
 
   addPost(post: Post) {
